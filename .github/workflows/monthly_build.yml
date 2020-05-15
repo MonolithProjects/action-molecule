@@ -1,0 +1,22 @@
+name: Monthly build
+
+on:
+    schedule:
+        - cron: '0 1 1 * *'
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v2
+            with:
+              ref: master
+          - name: Monthly build
+            uses: HurricanKai/Publish-Docker-Github-Action@master
+            with:
+              name: monolithprojects/github-action-molecule
+              username: monolithprojects
+              password: ${{ secrets.TOKEN }}
+              registry: docker.io
+              dockerfile: Dockerfile
