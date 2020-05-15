@@ -33,8 +33,7 @@ GitHub Action for Molecule to test your Ansible Role including the Ansible Tags.
     description: |
       Run molecule converge with Ansible tags.
       Same like: molecule converge -- --tags foo,bar
-    required: false  
-    default: 'all'
+    required: false
 ```
 
 ## Usage
