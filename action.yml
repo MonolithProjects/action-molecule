@@ -1,6 +1,6 @@
 ---
-name: Molecule for Ansible
-description: Test Ansible with Molecule
+name: Molecule
+description: Test Ansible Roles with Molecule
 author: Michal Muransky <mike.muransky@gmail.com>
 
 branding:
