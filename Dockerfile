@@ -19,4 +19,4 @@ RUN apk add --update --no-cache \
     && pip install --no-cache-dir "molecule[docker]" \
     && rm -rf /root/.cache
 
-CMD cd ${GITHUB_REPOSITORY} ; if [ "${M_COMMAND}" = "converge" ] && [ -n "${C_TAGS}" ] ; then echo "Ansible tags used: ${C_TAGS}" ; molecule converge -- -tags "${C_TAGS}" ; else molecule "${M_COMMAND}" ; fi
+CMD cd ${GITHUB_REPOSITORY} ; if [ "${M_COMMAND}" = "converge" ] && [ -n "${C_TAGS}" ] ; then echo "Ansible tags used: ${C_TAGS}" ; molecule converge -- --tags "${C_TAGS}" ; else molecule "${M_COMMAND}" ; fi

@@ -1,6 +1,6 @@
 # Molecule GitHub Action
 
-This GitHub Action runs Molecule to test Ansible role.
+GitHub Action for Molecule to test your Ansible Role including the Ansible Tags.
 
 ## Inputs
 
