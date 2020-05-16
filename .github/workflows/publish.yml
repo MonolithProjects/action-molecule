@@ -12,7 +12,7 @@ jobs:
           - name: Checkout
             uses: actions/checkout@v2
           - name: Publish
-            uses: HurricanKai/Publish-Docker-Github-Action@master
+            uses: HurricanKai/Publish-Docker-Github-Action@1.12.2
             with:
               name: monolithprojects/github-action-molecule
               username: monolithprojects
