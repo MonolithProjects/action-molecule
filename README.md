@@ -7,7 +7,7 @@ GitHub Action for Molecule to test your Ansible Role including the Ansible Tags.
 ```yaml
   molecule_command:
     description: |
-      Commands:
+      Molecule commands:
         check        Use the provisioner to perform a Dry-Run.
         cleanup      Use the provisioner to cleanup changes.
         converge     Use the provisioner to configure instances.
@@ -56,7 +56,7 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: monolithprojects/action-molecule@master
+        uses: monolithprojects/action-molecule@1.0.1
 ```
 
 ### Example for testing the Ansible Tags
@@ -74,7 +74,7 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: monolithprojects/action-molecule@master
+        uses: monolithprojects/action-molecule@1.0.1
         with:
           molecule_command: converge
           converge_tags: foo,bar
