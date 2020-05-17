@@ -11,12 +11,12 @@ jobs:
         steps:
           - name: Checkout
             uses: actions/checkout@v2
-          - name: Publish
-            uses: HurricanKai/Publish-Docker-Github-Action@master
+          - name: Publish to Registry
+            uses: elgohr/Publish-Docker-Github-Action@master
             with:
               name: monolithprojects/github-action-molecule
               username: monolithprojects
               password: ${{ secrets.TOKEN }}
-              tagging: true
+              tag_semver: true
               registry: docker.io
               dockerfile: Dockerfile
