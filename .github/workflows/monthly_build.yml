@@ -13,7 +13,7 @@ jobs:
             with:
               ref: master
           - name: Monthly build
-            uses: HurricanKai/Publish-Docker-Github-Action@master
+            uses: elgohr/Publish-Docker-Github-Action@master
             with:
               name: monolithprojects/github-action-molecule
               username: monolithprojects
