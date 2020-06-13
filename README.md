@@ -1,6 +1,7 @@
 # Molecule GitHub Action
 
-GitHub Action for Molecule to test your Ansible Role including the Ansible Tags.
+GitHub Action for Molecule to test your Ansible Role including the Ansible Tags.  
+Small, multi stage built, Alpine Linux 3.12 based Docker image.  
 
 ## Inputs
 
