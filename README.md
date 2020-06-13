@@ -39,8 +39,7 @@ This GitHub Action is a small, multi stage built, Alpine Linux 3.12 based Docker
 
 ## Usage
 
-To use the action simply create an `yaml` file in `.github/workflows/` directory.  
-If you want to test your Ansible tags, use `converge` molecule command and ansible tags.
+To use the action simply create a `yaml` file in `.github/workflows/` directory. See the examples below. 
 
 ### Basic example
 
