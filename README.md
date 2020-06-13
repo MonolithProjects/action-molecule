@@ -56,7 +56,7 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: monolithprojects/action-molecule@v1.0.1
+        uses: monolithprojects/action-molecule@v1.2.0
 ```
 
 ### Ansible Tags testing
@@ -74,7 +74,7 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: monolithprojects/action-molecule@v1.0.1
+        uses: monolithprojects/action-molecule@v1.2.0
         with:
           molecule_command: converge
           converge_tags: foo,bar
