@@ -1,7 +1,7 @@
 # Molecule GitHub Action
 
-GitHub Action for Molecule to test your Ansible Role including the Ansible Tags.  
-Small, multi stage built, Alpine Linux 3.12 based Docker image.  
+GitHub Action for Molecule (docker driver) to test your Ansible Roles including the Ansible Tags.  
+This GitHub Action is a small, multi stage built, Alpine Linux 3.12 based Docker image.  
 
 ## Inputs
 
@@ -44,7 +44,7 @@ If you want to test your Ansible tags, use `converge` molecule command and ansib
 
 ### Basic example
 
-This runs `molecule test`:
+In this case the GitHub Action will run `molecule test`:
 
 ```yaml
 on: push
@@ -60,9 +60,9 @@ jobs:
         uses: monolithprojects/action-molecule@v1.0.1
 ```
 
-### Example for testing the Ansible Tags
+### Ansible Tags testing
 
-This runs `molecule converge -- --tags foo,bar`:
+In this case the GitHub Action will run `molecule converge -- --tags foo,bar`:
 
 ```yaml
 on: push
