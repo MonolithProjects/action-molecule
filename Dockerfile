@@ -33,5 +33,5 @@ COPY --from=builder /usr/local/bin/molecule /usr/local/bin/molecule
 COPY --from=builder /usr/local/bin/yamllint /usr/local/bin/yamllint
 COPY --from=builder /usr/local/bin/ansible* /usr/local/bin/
 
-CMD cd ${GITHUB_REPOSITORY} ; if [ "${M_COMMAND}" = "converge" ] && [ -n "${C_TAGS}" ] ; then echo "Ansible tags used: ${C_TAGS}" ; molecule converge -- --tags "${C_TAGS}" ; else molecule "${M_COMMAND}" ; fi
+CMD cd ${GITHUB_REPOSITORY} ; if [ '${M_COMMAND}' = 'converge' ] && [ -n '${EXTRA_ARGS}' ] ; then echo 'Ansible extra arfuments: ${EXTRA_ARGS}' ; molecule converge -- '${EXTRA_ARGS}' ; else molecule '${M_COMMAND}' ; fi
 

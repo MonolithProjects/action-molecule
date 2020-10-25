@@ -1,7 +1,7 @@
 # Molecule GitHub Action
 
-GitHub Action for Molecule (docker driver) to test your Ansible Roles including the Ansible Tags.  
-This GitHub Action is a small, multi stage built, Alpine Linux 3.12 based Docker image.  
+GitHub Action for Molecule (docker driver) to test your Ansible Roles including the Ansible-playbook arguments.  
+This GitHub Action is small, multi stage built, Alpine Linux 3.12 based Docker image.  
 
 ## Inputs
 
@@ -30,10 +30,9 @@ This GitHub Action is a small, multi stage built, Alpine Linux 3.12 based Docker
         verify       Run automated tests against instances.
     required: true
     default: 'test'
-  converge_tags:
+  converge_extra_args:
     description: |
-      Run molecule converge with Ansible tags.
-      Same like: molecule converge -- --tags foo,bar
+      Run molecule converge with ansible-playbook arguments ( Same like: molecule converge -- --tags foo,bar --extra_vars "my_var=true").
     required: false
 ```
 
@@ -56,12 +55,12 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: monolithprojects/action-molecule@v1.2.0
+        uses: monolithprojects/action-molecule@v1.3.0
 ```
 
-### Ansible Tags testing
+### Ansible-playbook arguments
 
-In this case the GitHub Action will run `molecule converge -- --tags foo,bar`:
+In this case the GitHub Action will run `molecule converge -- <extra arguments for ansible-playbook>`:
 
 ```yaml
 on: push
@@ -74,8 +73,8 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: monolithprojects/action-molecule@v1.2.0
+        uses: monolithprojects/action-molecule@v1.3.0
         with:
           molecule_command: converge
-          converge_tags: foo,bar
+          converge_extra_args: --tags foo,bar --extra_vars "my_var=true"
 ```
