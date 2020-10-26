@@ -33,5 +33,4 @@ COPY --from=builder /usr/local/bin/molecule /usr/local/bin/molecule
 COPY --from=builder /usr/local/bin/yamllint /usr/local/bin/yamllint
 COPY --from=builder /usr/local/bin/ansible* /usr/local/bin/
 
-CMD cd ${GITHUB_REPOSITORY} ; if [ "${M_COMMAND}" = "converge" ] && [ -n "${EXTRA_ARGS}" ] ; then echo "Ansible extra arguments: ${EXTRA_ARGS}" ; ASSEMBLED_CMD="molecule converge -- ${EXTRA_ARGS}" eval $ASSEMBLED_CMD; else molecule "${M_COMMAND}" ; fi
-
+CMD cd ${GITHUB_REPOSITORY} ; if [ "${M_COMMAND}" = "converge" ] && [ -n "${EXTRA_ARGS}" ] ; then echo "Ansible extra arguments: ${EXTRA_ARGS}" ; ASSEMBLED_CMD="molecule converge -- ${EXTRA_ARGS}" ; eval $ASSEMBLED_CMD; else molecule "${M_COMMAND}" ; fi
