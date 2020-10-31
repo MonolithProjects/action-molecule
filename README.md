@@ -34,6 +34,10 @@ This GitHub Action is small, multi stage built, Alpine Linux 3.12 based Docker i
     description: |
       Run molecule converge with ansible-playbook arguments ( Same like: molecule converge -- --tags foo,bar --extra_vars "my_var=true").
     required: false
+  scenario:
+    description: |
+      Run specific Molecule Scenario
+    required: false
 ```
 
 ## Usage
@@ -60,7 +64,7 @@ jobs:
 
 ### Ansible-playbook arguments
 
-In this case the GitHub Action will run `molecule converge -- <extra arguments for ansible-playbook>`:
+In this case the GitHub Action will run `molecule converge -s special_scenario -- --tags foo,bar --extra_vars "my_var=true"`:
 
 ```yaml
 on: push
@@ -76,5 +80,6 @@ jobs:
         uses: monolithprojects/action-molecule@v1.3.0
         with:
           molecule_command: converge
+          scenario: special_scenario
           converge_extra_args: --tags foo,bar --extra_vars "my_var=true"
 ```
