@@ -48,3 +48,5 @@ runs:
     M_COMMAND: ${{ inputs.molecule_command }}
     SCENARIO: ${{ inputs.scenario }}
     EXTRA_ARGS: ${{ inputs.converge_extra_args }}
+    os: ${{ inputs.image }}
+    tag: ${{ inputs.os }}
