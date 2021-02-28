@@ -59,7 +59,7 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: monolithprojects/action-molecule@v1.3.0
+        uses: monolithprojects/action-molecule@v1.4.1
 ```
 
 ### Ansible-playbook arguments
@@ -77,9 +77,36 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: monolithprojects/action-molecule@v1.3.0
+        uses: monolithprojects/action-molecule@v1.4.1
         with:
           molecule_command: converge
           scenario: special_scenario
           converge_extra_args: --tags foo,bar --extra_vars "my_var=true"
+```
+
+### Matrix for used image and tag
+
+```yaml
+on: push
+
+jobs:
+  molecule:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - os: "centos8"
+            tag: "latest"
+          - os: "ubuntu20"
+            tag: "latest"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: "${{ github.repository }}"
+      - name: Molecule
+        uses: MonolithProjects/action-molecule@v1.4.1
+        with:
+          os: ${{ matrix.config.os }}
+          tag: ${{ matrix.config.tag }}
 ```
