@@ -9,6 +9,7 @@ RUN set -eux \
             musl-dev \
             openssl-dev \
     && pip install --no-cache-dir \
+            cryptography==2.8 \
             ansible-lint \
             "molecule[docker]"
 
