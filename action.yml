@@ -40,6 +40,14 @@ inputs:
     description: |
       Run specific Molecule Scenario
     required: false
+  os:
+    description: Image name.
+    required: false
+    default: ubuntu16
+  tag:
+    description: The container image tag.
+    required: false
+    default: latest
 
 runs:
   using: docker
