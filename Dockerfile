@@ -14,6 +14,7 @@ RUN set -eux \
             ansible-lint \
             jmespath \
             "molecule[docker]"
+            yamllint
 
 FROM python:3.8-alpine3.12
 
