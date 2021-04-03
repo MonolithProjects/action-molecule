@@ -12,6 +12,7 @@ RUN set -eux \
             cryptography==2.8 \
             ansible \
             ansible-lint \
+            jmespath \
             "molecule[docker]"
 
 FROM python:3.8-alpine3.12
