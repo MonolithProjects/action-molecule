@@ -1,4 +1,4 @@
-FROM python:3.8-alpine3.12 AS builder
+FROM python:3.9-alpine3.13 AS builder
 
 RUN set -eux \
     && apk add --update --no-cache \
@@ -9,14 +9,14 @@ RUN set -eux \
             musl-dev \
             openssl-dev \
     && pip install --no-cache-dir \
-            cryptography==2.8 \
+            cryptography==3.4.7 \
             ansible \
             ansible-lint \
             jmespath \
             "molecule[docker]" \
             yamllint
 
-FROM python:3.8-alpine3.12
+FROM python:3.9-alpine3.13
 
 LABEL "maintainer"="Michal Muransky <mike.muransky@gmail.com>"
 LABEL "repository"="https://github.com/MonolithProjects/action-molecule"
