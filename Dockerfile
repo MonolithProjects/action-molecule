@@ -9,7 +9,7 @@ RUN set -eux \
             musl-dev \
             openssl-dev \
     && pip install --no-cache-dir \
-            cryptography==3.4.7 \
+            cryptography==2.8 \
             ansible \
             ansible-lint \
             jmespath \
