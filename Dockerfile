@@ -1,5 +1,7 @@
 FROM python:3.9-alpine3.13 AS builder
 
+ENV MOLECULE_VER=3.5.2
+
 RUN set -eux \
     && apk add --update --no-cache \
             gcc \
@@ -10,10 +12,9 @@ RUN set -eux \
             openssl-dev \
     && pip install --no-cache-dir \
             cryptography==2.8 \
-            ansible \
             ansible-lint \
             jmespath \
-            "molecule[docker]" \
+            "molecule[ansible,docker,lint]==$MOLECULE_VER" \
             yamllint
 
 FROM python:3.9-alpine3.13

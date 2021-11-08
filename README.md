@@ -1,7 +1,7 @@
 # Molecule GitHub Action
 
-GitHub Action for Molecule (docker driver) to test your Ansible Roles including the Ansible-playbook arguments.  
-This GitHub Action is small, multi stage built, Alpine Linux 3.12 based Docker image.  
+GitHub Action for Molecule 3.5.2 (docker driver) to test your Ansible Roles including the Ansible-playbook arguments.  
+This GitHub Action is small, multi stage built, Alpine Linux 3.13 based Docker image.  
 
 ## Inputs
 
