@@ -51,7 +51,7 @@ inputs:
 
 runs:
   using: docker
-  image: docker://monolithprojects/github-action-molecule:1.4.5
+  image: docker://monolithprojects/github-action-molecule:1.5.0
   env:
     M_COMMAND: ${{ inputs.molecule_command }}
     SCENARIO: ${{ inputs.scenario }}
