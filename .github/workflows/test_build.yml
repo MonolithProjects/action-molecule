@@ -11,7 +11,7 @@ jobs:
         if: "! contains(github.event.head_commit.message, '[skip-ci]')"
         steps:
           - name: checkout
-            uses: actions/checkout@v2
+            uses: actions/checkout@v3
           - name: hadolint
             uses: brpaz/hadolint-action@master
           - name: build
