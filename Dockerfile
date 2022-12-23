@@ -1,21 +1,21 @@
-FROM python:3.9-alpine3.13 AS builder
+FROM python:3.10-alpine3.17 AS builder
 
-ENV MOLECULE_VER=3.5.2
+ENV MOLECULE_VER=4.0.3
 
 RUN set -eux \
-    && apk add --update --no-cache \
-            gcc \
-            libc-dev \
-            libffi-dev \
-            make \
-            musl-dev \
-            openssl-dev \
-    && pip install --no-cache-dir \
-            cryptography==2.8 \
-            ansible-lint \
-            jmespath \
-            "molecule[ansible,docker,lint]==$MOLECULE_VER" \
-            yamllint
+        && apk add --update --no-cache \
+                gcc \
+                libc-dev \
+                libffi-dev \
+                make \
+                musl-dev \
+                openssl-dev \
+        && pip install --no-cache-dir \
+                cryptography==3.4.8 \
+                ansible-lint \
+                jmespath \
+                "molecule[ansible,docker,lint]==$MOLECULE_VER" \
+                yamllint
 
 FROM python:3.9-alpine3.13
 
@@ -27,13 +27,13 @@ LABEL "com.github.actions.name"="action-molecule"
 LABEL "com.github.actions.description"="Molecule for Ansible"
 
 RUN set -eux \ 
-    && apk add --update --no-cache \
-        docker \
-        git \
-        openssh-client \
-        && rm -rf /root/.cache
+        && apk add --update --no-cache \
+                docker \
+                git \
+                openssh-client \
+                && rm -rf /root/.cache
 
-COPY --from=builder /usr/local/lib/python3.9/site-packages/ /usr/local/lib/python3.9/site-packages/
+COPY --from=builder /usr/local/lib/python3.10/site-packages/ /usr/local/lib/python3.10/site-packages/
 COPY --from=builder /usr/local/bin/molecule /usr/local/bin/molecule
 COPY --from=builder /usr/local/bin/yamllint /usr/local/bin/yamllint
 COPY --from=builder /usr/local/bin/ansible* /usr/local/bin/
